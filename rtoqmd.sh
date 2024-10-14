@@ -36,6 +36,14 @@ output_file="${input_file%.R}.qmd"
 # Create or clear the output file
 > "$output_file"
 
+# Add header
+echo "---" >> "$output_file"
+echo "title: \"Make simulated chromosomes for haploRILs\"" >> "$output_file"
+echo format: >> "$output_file"
+echo "  html:" >> "$output_file"
+echo "    page-layout: full" >> "$output_file"
+echo "---" >> "$output_file"
+
 # Read the input file line by line
 while IFS= read -r line ; do
     # Check if the line matches the pattern #### X ####
